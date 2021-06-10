@@ -11,4 +11,4 @@ Map | Beschrijving
 [Literatuur](https://github.com/mvvugt/U-Talent_GWAS/tree/main/Literatuur) | Hier heb ik papers gezet die handig uit kunnen komen
 [Opdrachten](https://github.com/mvvugt/U-Talent_GWAS/tree/main/Opdrachten) | De plek waar je alle opdrachten vindt
 
-* De privacy-gevoelige data krijgen jullie op een andere manier
+*De privacy-gevoelige data krijgen jullie op een andere manier
