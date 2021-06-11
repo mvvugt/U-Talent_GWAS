@@ -82,10 +82,10 @@ abline(v = c(mean1, mean1-sd1, mean1+sd1,
 Een samenvatting van de missende waardes voor SNPs:
 ```{r SNP missende data, echo = FALSE}
 # Schrijf hieronder de code om het bestand in te laden met de naam mis2
-mis2 <- read.table("HF_ind_miss.lmiss", header = TRUE)
+
 # Maak een samenvatting van de data zoals eerder ook steeds gedaan werd
-head(mis2)
-summary(mis2)
+
+
 ```
 
 Inspecteer de volgende grafiek:
@@ -103,10 +103,10 @@ hist(mis2$F_MISS, main = "SNP missingness", xlab = "Missingness",
 Samenvatting van de Hardy-Weinberg data:
 ```{r HWE data, echo = FALSE}
 # Schrijf hieronder de code om het bestand in te laden met de naam hwe
-hwe <- read.table("HF_ind_hardy.hwe", header = TRUE)
+
 # Maak een samenvatting van de data zoals eerder ook steeds gedaan werd
-head(hwe)
-summary(hwe)
+
+
 ```
 
 Bekijk de grafiek:
@@ -127,10 +127,10 @@ hist(hwe$P, main = "Hardy-Weinberg Equilibrium",
 Samenvatting van de allel frequentie-data:
 ```{r MAF data, echo = FALSE}
 # Schrijf hieronder de code om het bestand in te laden met de naam maf
-maf <- read.table("HF_ind_maf.frq", header = TRUE)
+
 # Maak een samenvatting van de data zoals eerder ook steeds gedaan werd
-head(maf)
-summary(maf)
+
+
 ```
 
 Bekijk de grafiek:
