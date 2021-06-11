@@ -1,0 +1,148 @@
+---
+title: "1.QC_GWAS"
+author: "M. van Vugt"
+date: "6/11/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introductie
+
+In dit bestand zullen alle grafieken gemaakt en opgeslagen worden die jullie maken tijdens de kwaliteitscontrole van de GWAS-data. De meeste code is er al, maar hoe verder we komen hoe meer ik jullie vraag de code zelf samen te stellen, omdat het vaak erg vergelijkbaar is met voorgaande code. Als het toch niet lukt, ben ik er natuurlijk om te helpen. 
+
+Vaak moeten, zoals je eerder ook al zag, de namen van de bestanden nog wel even aangepast worden aan hoe jullie bestanden heten. Dit staat er meestal bij. Als de code (volgens jou) klopt, klik je op het groene play-icoon aan de rechterkant van het blokje en dan wordt de code uitgevoerd.
+
+## Missende waardes individuen
+
+We inspecteren het bestand met de resultaten door middel van een grafiek. Eerst lezen we de data in en bekijken we de eerste paar regels om te zien hoe de data eruit ziet. We bekijken ook de intervallen (de minimale en maximale waarden) voor elke kolom.
+
+```{r data inspectie, echo = FALSE}
+# Verander de naam "example_missing.miss" voor de naam van jullie bestand
+# Zorg ervoor dat het bestand in dezelfde map als dit project staat
+miss <- read.table("example_missing.miss", header = TRUE)
+head(miss)
+
+# Bekijk een samenvatting van de data
+summary(miss)
+```
+
+Klopt de data met wat je verwacht had? Maak dan de grafiek:
+```{r grafiek missende individuen, echo = FALSE}
+hist(miss$F_MISS, main = "Sample missingness", xlab = "Missingness", 
+     col = "green", las = 1, breaks = 50)
+```
+
+> Q1. Beschrijf kort wat je ziet in deze grafiek en beredeneer, met behulp van de literatuur, welk percentage missende waardes toegestaan wordt.
+
+
+## Heterozygosity Rate
+
+Het bestand met de resultaten van de Heterozygosity Rate ziet er zo uit:
+```{r Heterozygosity Rate data, echo = FALSE}
+# Vervang de naam "example_het.het" naar de juiste naam
+het <- read.table("example_het.het", header = TRUE)
+het$het_rate <- ((het$N.NM. - het$O.HOM.) / het$N.NM.)
+head(het)
+summary(het)
+
+# Bereken het gemiddelde (mean) en de standaarddeviatie
+mean1 <- mean(het$het_rate)
+sd1 <- sd(het$het_rate)
+
+```
+
+Normaalgesproken hanteren we de zone van het gemiddelde plus en min 3 keer de standaarddeviatie als de normale waardes voor heterozygosity rate.
+
+```{r HR grafiek, echo = FALSE}
+# Bereken de grenswaardes
+lower <- mean1 - (3*sd1)
+upper <- mean1 + (3*sd1)
+
+# Maak de grafiek
+hist(het$het_rate, main = "Heterozygosity rate", 
+     xlab = "Heterozygosity", ylab = "Frequency", 
+     col = "yellow", las = 1, breaks = 100)
+# Voeg lijnen voor het gemiddelde en de standaarddeviaties toe
+abline(v = c(mean1, mean1-sd1, mean1+sd1, 
+             mean1-(2*sd1), mean1+(2*sd1), 
+             mean1-(3*sd1), mean1+(3*sd1)), 
+       col = c("black", "coral", "coral", "coral", "coral", "red", "red"), 
+       lty = c(1, 2, 2, 2, 2, 2, 2), lwd = 1)
+
+```
+
+> Q3. Beschrijf kort wat je ziet in de grafiek.
+
+
+## Missende waardes SNPs
+
+Een samenvatting van de missende waardes voor SNPs:
+```{r SNP missende data, echo = FALSE}
+# Schrijf hieronder de code om het bestand in te laden met de naam mis2
+mis2 <- read.table("HF_ind_miss.lmiss", header = TRUE)
+# Maak een samenvatting van de data zoals eerder ook steeds gedaan werd
+head(mis2)
+summary(mis2)
+```
+
+Inspecteer de volgende grafiek:
+
+```{r SNP missend grafiek, echo = FALSE}
+hist(mis2$F_MISS, main = "SNP missingness", xlab = "Missingness", 
+     col = "blue", breaks = 100, las = 1)
+```
+
+> Q6. Beschrijf kort wat je in deze grafiek ziet en beredeneer, met behulp van de literatuur, welke percentage missende waardes toegestaan wordt.
+
+
+## Hardy-Weinberg evenwicht
+
+Samenvatting van de Hardy-Weinberg data:
+```{r HWE data, echo = FALSE}
+# Schrijf hieronder de code om het bestand in te laden met de naam hwe
+hwe <- read.table("HF_ind_hardy.hwe", header = TRUE)
+# Maak een samenvatting van de data zoals eerder ook steeds gedaan werd
+head(hwe)
+summary(hwe)
+```
+
+Bekijk de grafiek:
+
+```{r HWE grafiek, echo = FALSE}
+# Filter the subset for only controls
+hwe <- subset(hwe, TEST == "UNAFF")
+hist(hwe$P, main = "Hardy-Weinberg Equilibrium", 
+     xlab = "Hardy-Weinberg equilibrium", 
+     col = "yellow", xlim = c(0,1), ylim = c(0,300000), breaks = 100)
+```
+
+> Q8. Beschrijf kort wat je in de grafiek ziet. Waarom bekijken we de grafiek, terwijl we eigenlijk al wel een waarde gekozen hebben?
+
+
+## Minor allele frequency
+
+Samenvatting van de allel frequentie-data:
+```{r MAF data, echo = FALSE}
+# Schrijf hieronder de code om het bestand in te laden met de naam maf
+maf <- read.table("HF_ind_maf.frq", header = TRUE)
+# Maak een samenvatting van de data zoals eerder ook steeds gedaan werd
+head(maf)
+summary(maf)
+```
+
+Bekijk de grafiek:
+
+```{r MAF grafiek, echo = FALSE}
+hist(maf$MAF, main = "Minor Allele Frequency", 
+     xlab = "MAF", 
+     col = "red", xlim = c(0,0.6), breaks = 100)
+```
+
+> Q11. Beschrijf kort wat je in deze grafiek ziet. Bedenk gebaseerd op deze grafiek en de literatuur welke waarde je gebruikt om te filteren.
+
+## Opslaan
+
+Klik nu op de knop **Knit** bovenaan, waardoor een html-bestand wordt aangemaakt met al deze resultaten.

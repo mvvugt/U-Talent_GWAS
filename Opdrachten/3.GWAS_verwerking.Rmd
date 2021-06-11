@@ -1,0 +1,26 @@
+---
+title: "3.GWAS_verwerking"
+author: "M. van Vugt"
+date: "6/11/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introductie
+
+Nu de GWAS achter de rug is, laten we `plink` voor wat het is en gaan we volledig over naar `R`. 
+Houd vooral ook de website van plink, het kopje [Linear and logistic models](http://zzz.bwh.harvard.edu/plink/anal.shtml#glm) bij de hand.
+
+## Eerste kijk op de data
+
+Het eerste overzichtje van de data:
+```{r Laad GWAS-resultaten, echo = FALSE}
+# Laad de data met de naam `gwas` en maak een samenvatting van de data zoals je eerder ook gedaan hebt.
+gwas <- read.table("gwas_example.assoc.logistic", header = TRUE)
+head(gwas)
+summary(gwas)
+```
+
