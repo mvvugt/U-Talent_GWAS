@@ -7,6 +7,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+source("../Data/functions.R")
 ```
 
 ## Introductie
@@ -16,11 +17,27 @@ Houd vooral ook de website van plink, het kopje [Linear and logistic models](htt
 
 ## Eerste kijk op de data
 
-Het eerste overzichtje van de data:
+Een eerste overzicht van de data:
 ```{r Laad GWAS-resultaten, echo = FALSE}
 # Laad de data met de naam `gwas` en maak een samenvatting van de data zoals je eerder ook gedaan hebt.
-gwas <- read.table("gwas_example.assoc.logistic", header = TRUE)
+gwas <- read.table("../Data/HF_result.logistic", header = TRUE)
 head(gwas)
 summary(gwas)
 ```
 
+## QQ-plot
+
+```{r QQ-plot, echo = FALSE}
+# Verwijder de missende waardes voor P
+gwas <- subset(gwas, !is.na(P))
+
+# Maak de QQ-plot
+QQ(gwas)
+```
+
+## Manhattan
+
+```{r Manhattan, echo=FALSE, warning=FALSE}
+# Maak de Manhattan-plot
+manhattan(gwas)
+```
