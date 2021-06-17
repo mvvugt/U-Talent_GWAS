@@ -21,5 +21,5 @@ In de map [Opdrachten](https://github.com/mvvugt/U-Talent_GWAS/tree/main/Opdrach
 - [x] Opdracht 2 - GWAS
 - [ ] Check GWAS-resultaten
 - [ ] Opdracht 3 - GWAS-verwerking
-- [ ] Opdracht 4 - Vergelijkingen Literatuur
+- [ ] Opdracht 4 - Interpretatie 
 - [ ] Testen op Windows
