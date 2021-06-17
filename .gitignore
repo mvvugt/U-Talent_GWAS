@@ -1,5 +1,6 @@
 # Result files - ANSWERS
 *.html
+*logistic
 
 # # History files
 .Rhistory
