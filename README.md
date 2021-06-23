@@ -14,7 +14,7 @@ Map | Beschrijving
 *De privacy-gevoelige data krijgen jullie op een andere manier
 
 ## Download
-In de map [Opdrachten](https://github.com/mvvugt/U-Talent_GWAS/tree/main/Opdrachten){:target="_blank"} staan de R-bestanden waarmee je op je eigen computer zult werken, dus deze moeten sowieso gedownload worden.
+In de map [Opdrachten](https://github.com/mvvugt/U-Talent_GWAS/tree/main/Opdrachten) staan de R-bestanden waarmee je op je eigen computer zult werken, dus deze moeten sowieso gedownload worden.
 
 ## To Do
 - [x] Opdracht 1 - QC
