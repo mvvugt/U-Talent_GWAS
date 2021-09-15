@@ -1,8 +1,16 @@
 # Result files - ANSWERS
 *.html
 *logistic
+*answers*
 
-# # History files
+# Data
+*bim
+*bed
+*fam
+*ped
+*map
+
+# History files
 .Rhistory
 .Rapp.history
 .DS_Store

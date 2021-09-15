@@ -15,11 +15,3 @@ Map | Beschrijving
 
 ## Download
 In de map [Opdrachten](https://github.com/mvvugt/U-Talent_GWAS/tree/main/Opdrachten) staan de R-bestanden waarmee je op je eigen computer zult werken, dus deze moeten sowieso gedownload worden.
-
-## To Do
-- [x] Opdracht 1 - QC
-- [x] Opdracht 2 - GWAS
-- [ ] Check GWAS-resultaten
-- [ ] Opdracht 3 - GWAS-verwerking
-- [ ] Opdracht 4 - Interpretatie
-- [ ] Testen op Windows

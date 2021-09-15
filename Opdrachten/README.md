@@ -19,3 +19,10 @@ Als het goed is, spreekt het allemaal redelijk voor zich, maar alsnog hierbij ee
   * interpreteren resultaten
   * begrijpen mechanismes
   * literatuur vergelijken met eigen resultaten
+
+
+## Dag 1 en 2 - QC en voorbereiding
+
+Voor we echt gaan beginnen moeten we een paar dingen controleren. Allereerst gaan jullie, naast R, met nog een type software werken, zogenaamd plink. Zorg ervoor dat deze [gedownload](http://zzz.bwh.harvard.edu/plink/download.shtml) is op de computer waarop je gaat werken. Het handigste is, om een mapje aan te maken waarin dit programma staat en waar je ook je data in zet, dat scheelt een hoop werk. (Als je ervoor hebt gekozen om alles van deze website te downloaden, zou je ervoor kunnen kiezen om de data en software samen in het mapje `Data` te zetten bijvoorbeeld). De data stuur ik jullie via beveiligde mail, omdat dit zeer privacy-gevoelig is.
+
+Als alles klopt, kunnen jullie nu aan de slag met het bestand `1.QC.md`.
