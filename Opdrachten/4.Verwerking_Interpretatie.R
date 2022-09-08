@@ -1,4 +1,22 @@
+# Lees de functies in
+source("../Software/functions.R")
+
+# Lees de GWAS-resultaten in
+
+
+# Maak de QQ-plot 
+pdf(file = "name.pdf")
+QQ(data)
+dev.off()
+
+# Maak de Manhattan-plot
+pdf(file = "naam.pdf")
+manhattan(data)
+dev.off()
+
+
 # Baseline tabel
+install.packages("tableone")
 library(tableone)
 
 # Lees de data in
@@ -13,7 +31,7 @@ head(data)
 # kolommen die genoemd zijn
 data$Geslacht <- as.factor(data$Geslacht)
 
-# Bedenk per kolom of dit interessant is voor jullie tabel en creeer een vector (cols)
+# Bedenk per kolom of/waarom dit interessant is voor jullie tabel en creeer een vector (cols)
 # met de kolom namen die je in de tabel wilt hebben (http://www.r-tutorial.nl/)
 # Fenotype willen we er niet in!
 
