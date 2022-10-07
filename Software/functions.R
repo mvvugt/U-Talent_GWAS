@@ -180,12 +180,12 @@ manhattan <- function(data) {
   lines(c(min(pos), max(pos)), c(7,7), lty = "dashed", lwd = 1, col = "black")
   mtext("-log10 of P value", side = 2, at = 7.5, line = 1)
   for (i in 1:22) {
-    axis(1, at = xAT[i], labels = c(i), cex.axis = 1.5,tick = FALSE)
+    axis(1, at = xAT[i], labels = c(i), cex = 1, cex.axis = .8, tick = FALSE)
   }
   
   axis(1, at = xEND, 
-       labels = c("","","","","","","","","","","","","","","","","","","","","","",""), 
-       tick = TRUE, cex.axis = 0.8)
-  axis(2, at = c(0, 5, 10, 15), labels = c(0, 5, 10, 15), pos = c(0,0), las = 1)
+       labels = rep("", 23), tick = TRUE, cex.axis = 0.5, cex = .5)
+  axis(2, at = seq(0, 40, 5), labels = seq(0, 40, 5), pos = c(0,0), las = 1, 
+       cex = 1, cex.axis = .8)
   
 }
